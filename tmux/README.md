@@ -11,7 +11,7 @@ $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 3. Source file to apply changes
 
 ```bash
-$ tmux source ~/.tmux.conf`
+$ tmux source ~/.tmux.conf
 ```
 
 4. Install plugins with tpm
@@ -21,6 +21,6 @@ $ tmux source ~/.tmux.conf`
 $ tmux
 
 # install plugins
-<prefix> I
+<prefix> + shift + i
 ```
 

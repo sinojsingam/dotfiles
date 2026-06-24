@@ -153,11 +153,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- indentation per filetype
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'json', 'css' },
+  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'json', 'css', 'xml' },
   callback = function()
     vim.opt_local.expandtab = true
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'bash', 'sh' },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
   end,
 })
 
@@ -385,6 +394,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { desc = '[F]ind [B]uffers' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
